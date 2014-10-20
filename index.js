@@ -13,14 +13,14 @@ exports['return'] = exports.result;
 
 exports.select = function () {
     var keys = [].slice.call(arguments);
-    var callback = args.pop();
+    var callback = keys.pop();
 
     return function (err, res) {
         if (err) return callback(err);
 
         var subres = res;
         for (var i = 0; i < keys.length; i++) {
-            subres = subres[key];
+            subres = subres[keys[i]];
         }
         callback(err, subres);
     }
